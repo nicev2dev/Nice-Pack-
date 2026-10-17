@@ -1,550 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Nice Pack &mdash; Diamond Ice
-  </title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&amp;family=Rajdhani:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   :root {
-  --pink:#63eaff;
-  --pink2:#8cecff;
-  --ice:#d18cff;
-  --bg:#080b18;
-  --panel:rgba(12,19,39,.88);
-  --line:rgba(140,236,255,.34);
-  --text:#fff2fc;
-  --muted:#d0c1d8
-}
-* {
-  box-sizing:border-box
-}
-html {
-  scroll-behavior:smooth
-}
-body {
-  margin:0;
-  color:var(--text);
-  font-family:"Rajdhani",ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
-  font-size:18px;
-  background:radial-gradient(ellipse at 20% 5%,#164b6388,transparent 38%),radial-gradient(ellipse at 90% 28%,#143e6380,transparent 38%),linear-gradient(160deg,#0d1d2b,#080b18 65%,#101b2a);
-  min-height:100vh;
-  overflow-x:hidden
-}
-body:before {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-  background:linear-gradient(115deg,#63eaff0d,#8cecff0b),url('https://i.postimg.cc/t1ycr0wx/a2eec8298e8dc7f825337ac402fdb428.jpg') center/cover;
-  opacity:.32
-}
-h1,h2,h3,.eyebrow,.download-title,.stat-title {
-  font-family:"Orbitron","Rajdhani",sans-serif;
-  letter-spacing:.015em
-}
-h1,h2 {
-  font-weight:800
-}
-button,.btn,.lang,nav a {
-  font-family:"Rajdhani",sans-serif;
-  font-weight:700
-}
-.wrap {
-  width:min(1120px,calc(100% - 32px));
-  margin:auto
-}
-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:16px 0
-}
-.brand {
-  font-family:"Orbitron","Rajdhani",sans-serif;
-  font-weight:800;
-  font-size:1.25rem;
-  letter-spacing:.2px
-}
-.brand span {
-  background:linear-gradient(100deg,#63eaff,#b8c9ff,#ff79d3);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent
-}
-nav {
-  display:flex;
-  gap:20px
-}
-a {
-  color:inherit;
-  text-decoration:none
-}
-nav a {
-  color:#ead8ec;
-  font-weight:650
-}
-/* Button ភាសាទំហំតូច */
-.lang {
-  background:#102b3a;
-  border:1px solid var(--line);
-  border-radius:10px;
-  color:white;
-  padding:6px 14px;
-  min-height:unset;
-  font-size:0.85rem;
-  cursor:pointer
-}
-.hero {
-  padding:36px 0 28px;
-  max-width:900px
-}
-.eyebrow {
-  color:var(--pink2);
-  font-weight:850;
-  letter-spacing:3px;
-  font-size:.82rem;
-  text-transform:uppercase
-}
-h1 {
-  font-size:clamp(2.7rem,7vw,5.8rem);
-  line-height:.99;
-  letter-spacing:-3px;
-  margin:16px 0 22px
-}
-.grad {
-  background:linear-gradient(95deg,#8cecff,#8eabff 52%,#ff79d3);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent
-}
-.lead {
-  font-size:clamp(1.1rem,2.6vw,1.45rem);
-  line-height:1.7;
-  color:#eee0f0;
-  max-width:800px
-}
-.actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:20px 0 0
-}
-/* Button ធម្មតាទំហំតូច */
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  padding:10px 18px;
-  min-height:42px;
-  border-radius:12px;
-  font-size:0.95rem;
-  font-weight:850;
-  background:linear-gradient(110deg,#63eaff,#9da8ff 55%,#ff79d3);
-  color:#211127;
-  border:1px solid #c3f7ff;
-  box-shadow:0 4px 15px #43dfff2c;
-  transition:transform .18s,filter .18s
-}
-.btn:hover {
-  transform:translateY(-2px);
-  filter:brightness(1.08)
-}
-.btn.secondary {
-  background:#101d32a8;
-  color:#e3fbff;
-  border:1px solid #65e8ff99;
-  box-shadow:none
-}
-.stats {
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-  margin:20px 0 50px
-}
-.stat {
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:20px;
-  background:linear-gradient(135deg,#22152d,#0c1c30);
-  box-shadow:inset 0 1px #ffffff0a
-}
-.stat .label {
-  font-size:.98rem;
-  color:var(--muted)
-}
-.stat strong {
-  display:block;
-  font-size:1.35rem;
-  margin-top:9px;
-  color:#d8fbff
-}
-section {
-  padding:28px 0 48px
-}
-.section-head {
-  margin-bottom:22px
-}
-.section-head .eyebrow {
-  color:var(--ice)
-}
-h2 {
-  font-size:clamp(2rem,4vw,3rem);
-  margin:10px 0
-}
-.sub {
-  font-size:1.12rem;
-  color:var(--muted);
-  line-height:1.65
-}
-.downloads {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  margin-top:24px
-}
-.download-card {
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:16px;
-  min-height:auto;
-  padding:24px;
-  border-radius:22px;
-  background:linear-gradient(145deg,rgba(24,18,44,.97),rgba(7,22,39,.96));
-  border:1px solid #8cecff77;
-  box-shadow:0 18px 55px #0004;
-  position:relative;
-  overflow:hidden
-}
-.download-card:before {
-  content:"";
-  position:absolute;
-  inset:0 auto 0 0;
-  width:5px;
-  background:linear-gradient(var(--pink),var(--ice))
-}
-.card-top {
-  display:flex;
-  align-items:center;
-  gap:19px
-}
-.icon {
-  flex:0 0 60px;
-  width:60px;
-  height:60px;
-  display:grid;
-  place-items:center;
-  border-radius:16px;
-  background:linear-gradient(145deg,#8cecff25,#8cecff1d);
-  border:1px solid #8cecff5c;
-  font-size:2rem
-}
-.card-title {
-  font-size:clamp(1.2rem,2.2vw,1.5rem);
-  line-height:1.2;
-  font-weight:900;
-  letter-spacing:-.5px
-}
-.card-desc {
-  font-size:1rem;
-  line-height:1.5;
-  color:#d9cddd
-}
-.download-card .btn {
-  font-size:0.95rem;
-  padding:10px 18px;
-  min-height:42px;
-  width:100%;
-  margin-top:auto
-}
-.version {
-  font-size:.8rem;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  color:var(--ice);
-  font-weight:850
-}
-.preview-row {
-  display:flex;
-  overflow-x:auto;
-  gap:16px;
-  padding:8px 2px 18px;
-  scroll-snap-type:x mandatory;
-  overscroll-behavior-x:contain
-}
-.preview-row img {
-  height:clamp(230px,52vw,410px);
-  width:auto;
-  max-width:88vw;
-  object-fit:cover;
-  flex:0 0 auto;
-  border-radius:18px;
-  border:1px solid #8cecff80;
-  scroll-snap-align:start;
-  cursor:zoom-in
-}
-.note {
-  color:var(--muted);
-  font-size:.95rem
-}
-footer {
-  text-align:center;
-  padding:30px 0 42px;
-  color:#c9b7d0;
-  border-top:1px solid #8cecff2c;
-  margin-top:25px
-}
-.spark {
-  position:fixed;
-  top:-20px;
-  z-index:-1;
-  color:var(--pink2);
-  opacity:.7;
-  pointer-events:none;
-  animation:fall linear infinite;
-  text-shadow:0 0 12px #7beaff
-}
-.spark:nth-child(3n) {
-  color:var(--ice)
-}
-@keyframes fall {
-  to {
-    transform:translateY(110vh) rotate(260deg)
-  }
-}
-@media(max-width:700px) {
-  .wrap {
-    width:min(100% - 28px,600px)
-  }
-  header {
-    padding:17px 0
-  }
-  .hero {
-    padding-top:25px
-  }
-  nav {
-    display:none
-  }
-  h1 {
-    letter-spacing:-1.8px
-  }
-  .stats {
-    grid-template-columns:1fr 1fr;
-    gap:10px
-  }
-  .stat {
-    padding:16px
-  }
-  .downloads {
-    grid-template-columns:1fr;
-    gap:18px
-  }
-  .download-card {
-    min-height:auto;
-    padding:20px
-  }
-  .card-top {
-    gap:12px
-  }
-  .icon {
-    width:50px;
-    height:50px;
-    flex-basis:50px;
-    font-size:1.6rem
-  }
-  .actions .btn {
-    flex:initial;
-    min-height:42px;
-    font-size:0.95rem;
-    padding:10px 18px
-  }
-  .lead {
-    line-height:1.6
-  }
-}
-  </style>
- </head>
- <body>
-  <div class="wrap">
-   <header>
-    <div class="brand">
-     NICE
-     <span>
-      PACK
-     </span>
-    </div>
-    <nav>
-     <a href="#downloads">
-      Downloads
-     </a>
-     <a href="#preview">
-      Preview
-     </a>
-     <a href="https://t.me/devnicev2" rel="noopener" target="_blank">
-      Telegram
-     </a>
-    </nav>
-    <button class="lang" id="langBtn" type="button">
-     ខ្មែរ / EN
-    </button>
-   </header>
-   <main>
-    <div class="hero">
-     <div class="eyebrow" data-en="✦ MINECRAFT JAVA RESOURCE PACK" data-km="✦ RESOURCE PACK សម្រាប់ MINECRAFT JAVA">
-      ✦ MINECRAFT JAVA RESOURCE PACK
-     </div>
-     <h1>
-      Download My Pack &mdash;
-      <br/>
-      <span class="grad">
-       Pink Pack
-      </span>
-     </h1>
-     <p class="lead" data-en="pink pack for java 1.21.11 pvp+anime Preview and Download for test Right Now." data-km=" pink Pack for Java 1.21.11 pvp+anime Preview">
-      A crisp, diamond-ice style for Minecraft Java. Preview the pack and choose the version you want.
-     </p>
-     <div class="actions">
-      <a class="btn" data-en="&darr; Get Nice Pack" data-km="&darr; ទាញយក Nice Pack" href="#downloads">
-       &darr; Explore Nice Pack
-      </a>
-      <a class="btn secondary" data-en="View Preview &searrow;" data-km="មើល Preview &searrow;" href="#preview">
-       View Preview &searrow;
-      </a>
-     </div>
-    </div>
-    <div class="stats">
-     <div class="stat">
-      <div class="label" data-en="Edition" data-km="Edition">
-       Edition
-      </div>
-      <strong>
-       Java
-      </strong>
-     </div>
-     <div class="stat">
-      <div class="label" data-en="Visual theme" data-km="ពណ៌ Theme">
-       Visual Pack
-      </div>
-      <strong class="grad" data-en="Pink 💗" data-km="Pink 💗">
-       Pink 💗
-      </strong>
-     </div>
-     <div class="stat">
-      <div class="label" data-en="Versions" data-km="ចំនួនកំណែ">
-       Versions
-      </div>
-      <strong>
-       1.21.11
-      </strong>
-     </div>
-     <div class="stat">
-      <div class="label" data-en="Release downloads" data-km="ចំនួនទាញយក">
-       Release downloads
-      </div>
-      <strong id="downloadCount">
-       &mdash;
-      </strong>
-     </div>
-    </div>
-    <section id="downloads">
-     <div class="section-head">
-      <div class="eyebrow">
-       ✧ CHOOSE YOUR VERSION
-      </div>
-      <h2 data-en="Downloads" data-km="ទាញយក Resource Pack">
-       Downloads
-      </h2>
-      <p class="sub" data-en="Pick the version that fits your gameplay." data-km="ជ្រើសរើសកំណែដែលសមនឹងការលេងរបស់បង។">
-       Pick the version that fits your gameplay.
-      </p>
-     </div>
-     <div class="downloads">
-      <article class="download-card">
-       <div class="version">
-        Version 2.0 &middot; Calm
-       </div>
-       <div class="card-top">
-        <div class="icon">
-         ❄️
-        </div>
-        <div class="card-title">
-         Nice Pack No Animation 2.0
-        </div>
-       </div>
-       <div class="card-desc" data-en="A calmer version with animations removed." data-km="កំណែស្ងប់ស្ងាត់ ដក Animation ចេញ។">
-        A calmer version with animations removed.
-       </div>
-       <a class="btn" data-en="&darr; Download ZIP" data-km="&darr; ទាញយក ZIP" href="https://github.com/nicev2dev/NiceTest/releases/download/Nice-Pack-No-Animetion-2.0/Nice.Pack.No.Animetion.2.0.zip" rel="noopener" target="_blank">
-        &darr; Download .zip
-       </a>
-      </article>
-      <article class="download-card">
-       <div class="version">
-        Version 2.0 &middot; Full
-       </div>
-       <div class="card-top">
-        <div class="icon">
-         💗
-        </div>
-        <div class="card-title">
-         Nice Pack 2.0
-        </div>
-       </div>
-       <div class="card-desc" data-en="The full version with the original pack experience." data-km="កំណែពេញលេញ ជាមួយបទពិសោធន៍ Resource Pack ដើម។">
-        The full version with the original pack experience.
-       </div>
-       <a class="btn" data-en="&darr; Download ZIP" data-km="&darr; ទាញយក ZIP" href="https://github.com/nicev2dev/NiceTest/releases/download/Nice-Pack-v2/Nice.Pack.v2.0.zip" rel="noopener" target="_blank">
-        &darr; Download .zip
-       </a>
-      </article>
-     </div>
-    </section>
-    <section id="preview">
-     <div class="section-head">
-      <div class="eyebrow">
-       ✧ SEE IT IN GAME
-      </div>
-      <h2 data-en="Pack Preview" data-km="រូបភាព Preview">
-       Pack Preview
-      </h2>
-      <p class="sub" data-en="Swipe sideways to explore the screenshots. Tap an image to open it." data-km="អូសឆ្វេងស្តាំដើម្បីមើលរូបភាព។ ចុចលើរូបដើម្បីបើកធំ។">
-       Swipe sideways to explore the screenshots. Tap an image to open it.
-      </p>
-     </div>
-     <div class="preview-row">
-      <img alt="Nice Pack Minecraft preview 1" loading="lazy" src="https://i.postimg.cc/PvshrVNd/Screenshot-2026-10-16-17-39-03-992-git-artdeell-mjlaunch-1792147397912edit.jpg"/>
-      <img alt="Nice Pack Minecraft preview 2" loading="lazy" src="https://i.postimg.cc/PvshrVNd/Screenshot-2026-10-16-17-39-03-992-git-artdeell-mjlaunch-1792147397912edit.jpg"/>
-      <img alt="Nice Pack Minecraft preview 3" loading="lazy" src="https://i.postimg.cc/RW6BKzfn/Screenshot-2026-10-16-18-10-23-323-git-artdeell-mjlaunch.jpg"/>
-     </div>
-     <p class="note">
-      Nice Pack &middot; Minecraft Java Edition &middot; Diamond Ice 💎
-     </p>
-    </section>
-   </main>
-   <footer>
-    ✦ Nice Pack And Wep Make BY NICE ✦
-    <br/>
-    <a href="https://t.me/devnicev2" rel="noopener" target="_blank">
-     Telegram: @devnicev2
-    </a>
-   </footer>
-  </div>
-  <script>
-   const langBtn=document.getElementById('langBtn');
-  let lang='en';langBtn.addEventListener('click',()=>{lang=lang==='en'?'km':'en';document.documentElement.lang=lang==='km'?'km':'en';document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang]);});
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nice Pack - Diamond Ice</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --pink-accent: #ff79d3;
+            --red-accent: #ff4b4b;
+            --black-accent: #00f2fe;
+            --ice-blue: #63eaff;
+            --text-main: #ffffff;
+            --text-muted: #d0c1d8;
+            --glass-bg: rgba(12, 19, 39, 0.92);
+            --glass-border: rgba(140, 236, 255, 0.25);
+        }
 
-  fetch('https://api.github.com/repos/nicev2dev/NiceTest/releases').then(r=>r.ok?r.json():Promise.reject()).then(releases=>{let total=0;releases.forEach(release=>(release.assets||[]).forEach(asset=>{if(/Nice\.Pack\.(No\.Animetion\.2\.0|v2\.0)\.zip/i.test(asset.name))total+=asset.download_count||0;}));document.getElementById('downloadCount').textContent=total.toLocaleString();}).catch(()=>{document.getElementById('downloadCount').textContent='—';});
+        /* --- GLOBAL STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
 
-  const row=document.querySelector('.preview-row');let startX=0;row.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});row.addEventListener('touchmove',e=>{if(Math.abs(e.touches[0].clientX-startX)>12)row.style.scrollBehavior='auto'},{passive:true});document.querySelectorAll('.preview-row img').forEach(img=>img.addEventListener('click',()=>{const overlay=document.createElement('div');overlay.style.cssText='position:fixed;inset:0;z-index:20;background:#05040df2;display:grid;place-items:center;padding:18px;cursor:zoom-out';const big=document.createElement('img');big.src=img.src;big.style.cssText='max-width:100%;max-height:92vh;object-fit:contain;border-radius:14px';overlay.appendChild(big);overlay.addEventListener('click',()=>overlay.remove());document.body.appendChild(overlay)}));
-for(let i=0;i<22;i++){const s=document.createElement('span');s.className='spark';s.textContent=i%3===0?'✦':i%3===1?'✧':'•';s.style.left=Math.random()*100+'%';s.style.animationDuration=(12+Math.random()*18)+'s';s.style.animationDelay=(-Math.random()*25)+'s';s.style.fontSize=(8+Math.random()*12)+'px';document.body.appendChild(s)}
-  </script>
- </body>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', 'Rajdhani', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            background-color: #080b18;
+        }
+
+        /* OPTIMIZED STATIC BACKGROUND FOR SMOOTH SCROLLING */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            background: url('https://i.ibb.co/7dX64GLd/5c184f0bdf4b10542652931b7fd03a80.jpg') center/cover no-repeat fixed;
+            opacity: 0.6;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: rgba(8, 11, 24, 0.82);
+            pointer-events: none;
+        }
+
+        .wrap {
+            width: min(1120px, calc(100% - 32px));
+            margin: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- HEADER CLASS --- */
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .brand span {
+            background: linear-gradient(100deg, var(--ice-blue), #b8c9ff, var(--pink-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--ice-blue);
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: white;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 45px 0 30px;
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            color: var(--ice-blue);
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.3rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .grad-text {
+            background: linear-gradient(95deg, var(--ice-blue), #8eabff 52%, var(--pink-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #eee;
+            margin-bottom: 25px;
+        }
+
+        /* HERO BUTTONS SIDE-BY-SIDE ON MOBILE */
+        .hero-actions {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .btn {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 10px;
+            min-height: 48px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            border: none;
+            white-space: nowrap;
+        }
+
+        /* BUTTON COLOR COLLAB */
+        .btn-collab {
+            background: linear-gradient(135deg, var(--ice-blue), var(--pink-accent), var(--red-accent));
+            background-size: 200% 200%;
+            animation: gradientMove 6s linear infinite;
+            color: #080b18;
+            box-shadow: 0 4px 20px rgba(255, 121, 211, 0.3);
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .btn-secondary {
+            background: rgba(12, 19, 39, 0.85);
+            color: white;
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* --- STATS GRID --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 30px 0 50px;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: 1.4rem;
+            margin-top: 6px;
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+        }
+
+        /* --- SECTION HEADERS --- */
+        section {
+            padding: 30px 0 50px;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-top: 8px;
+        }
+
+        /* --- CLASS DOWNLOAD CARDS (GPU ACCELERATED) --- */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 25px;
+        }
+
+        .download-card {
+            position: relative;
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #0c1327;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transform: translateZ(0); /* Force GPU Hardware Acceleration */
+            will-change: transform;
+        }
+
+        /* Custom Backgrounds for Cards */
+        .download-card.card-pink {
+            background: linear-gradient(145deg, rgba(12, 15, 28, 0.9), rgba(24, 18, 35, 0.95)), 
+                        url('https://i.ibb.co/WvKg9xdM/ef4a8c9761519d6caf920e117cd31524.jpg') center/cover no-repeat;
+        }
+        .card-pink .download-btn { background: linear-gradient(135deg, #ff79d3, #b8339b); color: #fff; }
+
+        .download-card.card-red {
+            background: linear-gradient(145deg, rgba(12, 15, 28, 0.9), rgba(45, 15, 15, 0.95)), 
+                        url('https://i.ibb.co/zVKBqZqj/bd584e6c4e41ddae402d15ff68d56abd.jpg') center/cover no-repeat;
+        }
+        .card-red .download-btn { background: linear-gradient(135deg, #ff4b4b, #a81c1c); color: #fff; }
+
+        .download-card.card-black {
+            background: linear-gradient(145deg, rgba(12, 15, 28, 0.9), rgba(15, 22, 28, 0.95)), 
+                        url('https://i.ibb.co/Q3FGWM4h/0f5f31d8233cadc551e949e2268a876b.jpg') center/cover no-repeat;
+        }
+        .card-black .download-btn { background: linear-gradient(135deg, #2a2a34, #00f2fe); color: #000; font-weight: 800; }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .pack-icon {
+            width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--glass-border);
+            font-size: 2rem;
+        }
+
+        .pack-info .version-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .card-pink .version-tag { color: var(--pink-accent); }
+        .card-red .version-tag { color: var(--red-accent); }
+        .card-black .version-tag { color: var(--black-accent); }
+
+        .pack-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .pack-desc {
+            font-size: 0.98rem;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            transition: filter 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-top: auto;
+        }
+
+        .download-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        /* --- PREVIEW GALLERY --- */
+        .preview-row {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            padding: 10px 5px 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling for mobile */
+        }
+
+        .preview-row::-webkit-scrollbar {
+            height: 6px;
+        }
+        .preview-row::-webkit-scrollbar-thumb {
+            background: var(--glass-border);
+            border-radius: 10px;
+        }
+
+        .preview-row img {
+            height: 380px;
+            width: auto;
+            max-width: 85vw;
+            object-fit: cover;
+            flex: 0 0 auto;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            scroll-snap-align: start;
+            cursor: zoom-in;
+        }
+
+        /* --- LIGHTWEIGHT FALLING SPARKS --- */
+        .spark {
+            position: fixed;
+            top: -20px;
+            z-index: -1;
+            color: var(--ice-blue);
+            opacity: 0.6;
+            pointer-events: none;
+            animation: simpleFall linear infinite;
+        }
+        .spark:nth-child(3n) { color: var(--pink-accent); }
+        .spark:nth-child(3n+1) { color: var(--ice-blue); }
+        .spark:nth-child(3n+2) { color: #ffffff; }
+
+        @keyframes simpleFall {
+            to { transform: translateY(105vh) rotate(360deg); }
+        }
+
+        @media(prefers-reduced-motion:reduce){
+            .spark { display: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: var(--ice-blue);
+            font-weight: 700;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media(max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            nav {
+                display: none;
+            }
+            .preview-row img {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <!-- HEADER CLASS -->
+        <header class="site-header">
+            <div class="brand">NICE <span>PACK</span></div>
+            <nav>
+                <a href="#downloads">Downloads</a>
+                <a href="#preview">Preview</a>
+                <a href="https://t.me/devnicev2" target="_blank">Telegram</a>
+            </nav>
+            <button class="lang-btn" id="langBtn" type="button">ខ្មែរ / EN</button>
+        </header>
+
+        <main>
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <div class="eyebrow" data-en="✦ MINECRAFT JAVA RESOURCE PACK" data-km="✦ RESOURCE PACK សម្រាប់ MINECRAFT JAVA">✦ MINECRAFT JAVA RESOURCE PACK</div>
+                <h1>Welcome To <br><span class="grad-text">Nice Wep</span></h1>
+                <p class="lead" data-en="High performance PvP & Anime style resource packs for Minecraft Java Edition 1.21.11 Choose your favorite theme below" data-km="Resource Pack រចនាបែប PvP + Anime សម្រាប់ Minecraft Java Edition 1.21.11 ជ្រើសរើសរចនាបថដែលអ្នកស្រឡាញ់ខាងក្រោម">High performance PvP & Anime style resource packs for Minecraft Java Edition 1.21.11 Choose your favorite theme below</p>
+                <div class="hero-actions">
+                    <a href="#downloads" class="btn btn-collab" data-en="↓ Explore Packs" data-km="↓ មើល Pack ទាំងអស់">↓ Explore Packs</a>
+                    <a href="#preview" class="btn btn-secondary" data-en="View Preview ↗" data-km="មើលរូបភាព Preview ↗">View Preview ↗</a>
+                </div>
+            </section>
+
+            <!-- STATS SECTION -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="label" data-en="Edition" data-km="ប្រព័ន្ធហ្គេម">Edition</div>
+                    <strong>Java Edition</strong>
+                </div>
+                <div class="stat-card">
+                    <div class="label" data-en="Visual Theme" data-km="ពណ៌រចនាបថ">Visual Theme</div>
+                    <strong class="grad-text">Pink · Red · Black</strong>
+                </div>
+                <div class="stat-card">
+                    <div class="label" data-en="Minecraft Version" data-km="ជំនាន់ហ្គេម">Version</div>
+                    <strong>1.21.11</strong>
+                </div>
+                <div class="stat-card">
+                    <div class="label" data-en="Total Downloads" data-km="ចំនួនទាញយកសរុប">Total Downloads</div>
+                    <strong id="downloadCount">&mdash;</strong>
+                </div>
+            </div>
+
+            <!-- DOWNLOADS SECTION -->
+            <section id="downloads">
+                <div class="section-header">
+                    <div class="eyebrow">✧ CHOOSE YOUR THEME</div>
+                    <h2 data-en="Download Pack" data-km="ទាញយក Packs">Download Packs</h2>
+                </div>
+
+                <div class="downloads-grid">
+                    <!-- Pink Pack -->
+                    <article class="download-card card-pink">
+                        <div class="card-top">
+                            <div class="pack-icon">💗</div>
+                            <div class="pack-info">
+                                <div class="version-tag">Version 2.0 &middot; Pink</div>
+                                <h3>Nice Pack Pink</h3>
+                            </div>
+                        </div>
+                        <div class="pack-desc" data-en="Pink theme with custom enchant glows, smooth animations, and cute aesthetic UI." data-km="Pack ពណ៌ផ្កាឈូក ជាមួយ Enchant glow ស្អាត និង Animation ទាក់ទាញ។">Pink theme with custom enchant glows, smooth animations, and cute aesthetic UI.</div>
+                        <a href="https://github.com/nicev2dev/Nice-Pack-/releases/download/Nice_Pack_Pink_2.0/Nice.Pack.Pink.zip" target="_blank" class="download-btn btn-collab" data-en="↓ Download .zip" data-km="↓ ទាញយក .zip">↓ Download .zip</a>
+                    </article>
+
+                    <!-- Red Pack -->
+                    <article class="download-card card-red">
+                        <div class="card-top">
+                            <div class="pack-icon">🔥</div>
+                            <div class="pack-info">
+                                <div class="version-tag">Version 2.0 &middot; Red</div>
+                                <h3>Nice Pack Red</h3>
+                            </div>
+                        </div>
+                        <div class="pack-desc" data-en="Aggressive red theme optimized for PvP with custom hotbar and fiery animations." data-km="Pack ពណ៌ក្រហម ខ្លាំងសក្ដិសមសម្រាប់ PvP ជាមួយ Hotbar ក្រហមឆេះ។">Aggressive red theme optimized for PvP with custom hotbar and fiery animations</div>
+                        <a href="https://github.com/nicev2dev/Nice-Pack-/releases/download/Nice_Pack_Red_2.0/Nice.Pack.Red.zip" target="_blank" class="download-btn btn-collab" data-en="↓ Download .zip" data-km="↓ ទាញយក .zip">↓ Download .zip</a>
+                    </article>
+
+                    <!-- Black Pack -->
+                    <article class="download-card card-black">
+                        <div class="card-top">
+                            <div class="pack-icon">⚡</div>
+                            <div class="pack-info">
+                                <div class="version-tag">Version 2.0 &middot; Black</div>
+                                <h3>Nice Pack Black</h3>
+                            </div>
+                        </div>
+                        <div class="pack-desc" data-en="Sleek Cyberpunk Dark Mode style with clean black UI and high contrast textures" data-km="Pack ពណ៌ខ្មៅស្ទាយ Cyberpunk Dark Mode">Sleek Cyberpunk Dark Mode style with clean black UI and high contrast textures</div>
+                        <a href="https://github.com/nicev2dev/Nice-Pack-/releases/download/Nice_Pack_Black_2.0/Nice.Pack.Black.zip" target="_blank" class="download-btn btn-collab" data-en="↓ Download .zip" data-km="↓ ទាញយក .zip">↓ Download .zip</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- PREVIEW GALLERY -->
+            <section id="preview">
+                <div class="section-header">
+                    <div class="eyebrow">✧ PREVIEW PACKS</div>
+                    <h2 data-en="Pack Preview" data-km="រូបភាព Preview ក្នុងហ្គេម">Pack Preview</h2>
+                </div>
+                <div class="preview-row">
+                    <img src="https://i.ibb.co/MDKbGmkm/Screenshot-2026-10-17-08-33-17-975-git-artdeell-mjlaunch.jpg" alt="Preview Red 1" loading="lazy">
+                    <img src="https://i.ibb.co/ycxXhp85/Screenshot-2026-10-17-08-32-54-396-git-artdeell-mjlaunch.jpg" alt="Preview Black" loading="lazy">
+                    <img src="https://i.ibb.co/j9d3ty5c/Screenshot-2026-10-17-08-32-18-883-git-artdeell-mjlaunch.jpg" alt="Preview Red PvP" loading="lazy">
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2026 Make By Nice_V2 </p>
+            <p style="margin-top: 6px;">Contact Telegram: <a href="https://t.me/devnicev2" target="_blank">@devnicev2</a></p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Language Switcher
+        const langBtn = document.getElementById('langBtn');
+        let currentLang = 'en';
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'km' : 'en';
+            document.documentElement.lang = currentLang;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.dataset[currentLang];
+            });
+        });
+
+        // GitHub Release Download Count Fetcher
+        fetch('https://api.github.com/repos/nicev2dev/Nice-Pack-/releases')
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(data => {
+                let total = 0;
+                data.forEach(release => {
+                    (release.assets || []).forEach(asset => {
+                        if (/\.zip$/i.test(asset.name)) {
+                            total += asset.download_count || 0;
+                        }
+                    });
+                });
+                document.getElementById('downloadCount').textContent = total.toLocaleString();
+            })
+            .catch(() => {
+                document.getElementById('downloadCount').textContent = '—';
+            });
+
+        // Lightbox Modal for Preview Images
+        document.querySelectorAll('.preview-row img').forEach(img => {
+            img.addEventListener('click', () => {
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(5,4,13,0.95);display:grid;place-items:center;padding:20px;cursor:zoom-out';
+                const bigImg = document.createElement('img');
+                bigImg.src = img.src;
+                bigImg.style.cssText = 'max-width:100%;max-height:90vh;object-fit:contain;border-radius:14px;box-shadow:0 0 40px rgba(0,0,0,0.8)';
+                modal.appendChild(bigImg);
+                modal.addEventListener('click', () => modal.remove());
+                document.body.appendChild(modal);
+            });
+        });
+
+        // Lightweight Falling Sparks Animation
+        for (let i = 0; i < 15; i++) {
+            const s = document.createElement('span');
+            s.className = 'spark';
+            s.textContent = i % 3 === 0 ? '✦' : i % 3 === 1 ? '✧' : '•';
+            s.style.left = Math.random() * 100 + '%';
+            s.style.animationDuration = (10 + Math.random() * 10) + 's';
+            s.style.animationDelay = (-Math.random() * 15) + 's';
+            s.style.fontSize = (8 + Math.random() * 8) + 'px';
+            document.body.appendChild(s);
+        }
+    </script>
+</body>
 </html>
